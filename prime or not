@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main() {
+    int num, i, isPrime = 1;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    // Prime check
+    if (num <= 1) {
+        isPrime = 0;
+    } else {
+        for (i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+    // Odd check
+    int isOdd = (num % 2 != 0);
+    printf("%d is:\n", num);
+   printf(" - %s\n", isPrime ? "Prime" : "Not Prime");
+    printf(" - %s\n", isOdd ? "Odd" : "Even");
+return 0;
+}
+output: Enter a number: 2005
+2005 is:
+ - Not Prime
+ - Odd
