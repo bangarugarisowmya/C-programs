@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int replaceZeros(int num) {
+    int result = 0, multiplier = 1;
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit == 0) digit = 1;
+        result = result + digit * multiplier;
+        multiplier *= 10;
+        num /= 10;
+    }
+    return result;
+}
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("After replacing 0's with 1's: %d\n", replaceZeros(num));
+    return 0;
+}
+
+OUTPUT : Enter a number: 1999
+After replacing 0's with 1's: 1999
+
