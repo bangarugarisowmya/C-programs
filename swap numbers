@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    printf("Before swap: a = %d, b = %d\n", a, b);
+
+    // Swap logic
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("After swap: a = %d, b = %d\n", a, b);
+    return 0;
+}
+
+OUTPUT : Enter two numbers: 29 27
+Before swap: a = 29, b = 27
+After swap: a = 27, b = 29
