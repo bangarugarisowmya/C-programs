@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int isPalindrome(char* s) {
+    int l = 0, r = strlen(s) - 1;
+    while (l < r)
+        if (s[l++] != s[r--]) return 0;
+    return 1;
+}
+
+int main() {
+    char s[] = "bharathkumar";
+    printf("%s is %s", s, isPalindrome(s) ? "a palindrome" : "not a palindrome");
+    return 0;
+}
+OUTPUT :
+bharathkumar is not a palindrome
