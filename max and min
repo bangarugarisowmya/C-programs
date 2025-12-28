@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <limits.h>
+
+void findMaxMin(int arr[], int size) {
+    int max = INT_MIN, min = INT_MAX;
+    
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > max)
+            max = arr[i];
+        if (arr[i] < min)
+            min = arr[i];
+    }
+    
+    printf("Max: %d, Min: %d\n", max, min);
+}
+
+int main() {
+    int arr[] = {10, 9, 6, 50, 23, 90};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    findMaxMin(arr, size);
+    return 0;
+}
+OUTPUT : 
+Max: 90, Min: 6
