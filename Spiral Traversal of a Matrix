@@ -1,0 +1,21 @@
+#include <stdio.h>
+#define R 3
+#define C 3
+
+void spiral(int m[R][C]) {
+    int t=0, b=R-1, l=0, r=C-1;
+    while(t<=b && l<=r) {
+        for(int i=l; i<=r; i++) printf("%d ",m[t][i]); t++;
+        for(int i=t; i<=b; i++) printf("%d ",m[i][r]); r--;
+        if(t<=b) { for(int i=r; i>=l; i--) printf("%d ",m[b][i]); b--; }
+        if(l<=r) { for(int i=b; i>=t; i--) printf("%d ",m[i][l]); l++; }
+    }
+}
+
+int main() {
+    int m[R][C] = {{1,2,3},{4,5,6},{7,8,9}};
+    spiral(m);
+    return 0;
+}
+OUTPUT :
+1 2 3 6 9 8 7 4 5 
