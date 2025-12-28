@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int hcf(int a, int b) {
+    if (b == 0) return a;
+    return hcf(b, a % b);
+}
+
+int main() {
+    int a = 48, b = 18;
+    printf("HCF(%d, %d) = %d", a, b, hcf(a, b)); // Output: HCF(48, 18) = 6
+    return 0;
+}
+OUTPUT :
+HCF(48, 18) = 6
