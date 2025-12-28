@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+typedef struct {
+    int feet;
+    int inch;
+} Distance;
+
+Distance add(Distance d1, Distance d2) {
+    Distance res;
+    res.inch = (d1.inch + d2.inch) % 12;
+    res.feet = d1.feet + d2.feet + (d1.inch + d2.inch) / 12;
+    return res;
+}
+
+int main() {
+    Distance d1, d2, res;
+    printf("Enter d1 (feet inch): ");
+    scanf("%d %d", &d1.feet, &d1.inch);
+    printf("Enter d2 (feet inch): ");
+    scanf("%d %d", &d2.feet, &d2.inch);
+    res = add(d1, d2);
+    printf("Sum: %d'-%d\"", res.feet, res.inch);
+    return 0;
+}
+
+OUTPUT :
+Enter d1 (feet inch): 5.6
+Enter d2 (feet inch): Sum: 2643'-11" 
