@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int strLen(char* s) {
+    int len = 0;
+    while(*s++) len++;
+    return len;
+}
+
+int main() {
+    char s[] = "hello";
+    printf("Length: %d", strLen(s)); // Output: 5
+    return 0;
+}
+
+OUTPUT :
+Length: 5
