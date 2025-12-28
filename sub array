@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int checkZeroSumSubarray(int arr[], int size) {
+    int sum = 0;
+    int* seen = (int*)calloc(size, sizeof(int));
+    
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+        if (sum == 0 || seen[sum] || arr[i] == 0)
+            return 1; // Found
+        seen[sum] = 1;
+    }
+    free(seen);
+    return 0; // Not found
+}
+
+int main() {
+    int arr[] = {4, 2, -3, 1, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    if (checkZeroSumSubarray(arr, size))
+        printf("Subarray with sum 0 exists\n");
+    else
+        printf("No such subarray\n");
+    
+    return 0;
+}
+OUTPUT : 
+Subarray with sum 0 exists
+
