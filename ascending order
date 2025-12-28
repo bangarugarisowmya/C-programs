@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compareAsc(const void* a, const void* b) {
+    return (*(int*)a - *(int*)b);
+}
+
+int compareDesc(const void* a, const void* b) {
+    return (*(int*)b - *(int*)a);
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 7, 3, 8, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int mid = size / 2;
+
+    printf("Original: ");
+    printArray(arr, size);
+
+    // Sort first half ascending
+    qsort(arr, mid, sizeof(int), compareAsc);
+    // Sort second half descending
+    qsort(arr + mid, size - mid, sizeof(int), compareDesc);
+
+    printf("Modified: ");
+    printArray(arr, size);
+
+    return 0;
+}
+OUTPUT : 
+Original: 5 2 9 1 7 3 8 6 
+Modified: 1 2 5 9 8 7 6 3 
