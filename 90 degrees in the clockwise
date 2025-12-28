@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+#define N 3
+
+void rotate90(int mat[N][N]) {
+    // Transpose
+    for (int i = 0; i < N; i++)
+        for (int j = i + 1; j < N; j++) {
+            int temp = mat[i][j];
+            mat[i][j] = mat[j][i];
+            mat[j][i] = temp;
+        }
+    // Reverse rows
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N / 2; j++) {
+            int temp = mat[i][j];
+            mat[i][j] = mat[i][N - j - 1];
+            mat[i][N - j - 1] = temp;
+        }
+}
+
+void printMatrix(int mat[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++)
+            printf("%d ", mat[i][j]);
+        printf("\n");
+    }
+}
+
+int main() {
+    int mat[N][N] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    printf("Original:\n");
+    printMatrix(mat);
+
+    rotate90(mat);
+    printf("Rotated 90° CW:\n");
+    printMatrix(mat);
+
+    return 0;
+}
+
+OUTPUT :
+Original:
+1 2 3 
+4 5 6 
+7 8 9 
+Rotated 90° CW:
+7 4 1 
+8 5 2 
+9 6 3 
