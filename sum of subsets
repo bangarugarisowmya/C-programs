@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void subsetSums(int arr[], int size) {
+    int total = 1 << size; // 2^size subsets
+    
+    printf("Subset sums: ");
+    for (int i = 0; i < total; i++) {
+        int sum = 0;
+        for (int j = 0; j < size; j++) {
+            if (i & (1 << j)) // Check if jth bit is set
+                sum += arr[j];
+        }
+        printf("%d ", sum);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {2, 3, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    subsetSums(arr, size);
+    return 0;
+}
+OUTPUT : 
+Subset sums: 0 2 3 5 5 7 8 10
