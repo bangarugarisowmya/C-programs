@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+void reverse(Node** head) {
+    Node* prev = NULL;
+    Node* curr = *head;
+    Node* next = NULL;
+    while (curr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    *head = prev;
+}
+
+void print(Node* head) {
+    while (head) {
+        printf("%d -> ", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    Node* head = (Node*)malloc(sizeof(Node));
+    head->data = 1;
+    head->next = (Node*)malloc(sizeof(Node));
+    head->next->data = 2;
+    head->next->next = (Node*)malloc(sizeof(Node));
+    head->next->next->data = 3;
+    head->next->next->next = NULL;
+
+    printf("Original: ");
+    print(head);
+    reverse(&head);
+    printf("Reversed: ");
+    print(head);
+    return 0;
+}
+OUTPUT :
+Original: 1 -> 2 -> 3 -> NULL
+Reversed: 3 -> 2 -> 1 -> NULL
+
