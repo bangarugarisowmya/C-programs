@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <limits.h>
+
+int kadane(int arr[], int size) {
+    int maxSum = INT_MIN;
+    int currSum = 0;
+    
+    for (int i = 0; i < size; i++) {
+        currSum += arr[i];
+        if (currSum > maxSum)
+            maxSum = currSum;
+        if (currSum < 0)
+            currSum = 0; // Reset if sum becomes negative
+    }
+    return maxSum;
+}
+
+int main() {
+    int arr[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    
+    printf("Max subarray sum: %d\n", kadane(arr, size));
+    return 0;
+}
+OUTPUT : 
+Max subarray sum: 6
